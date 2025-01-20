@@ -13,8 +13,7 @@ const imagekit = new ImageKit({
 // }
 
 export async function GET() {
-  const allowedOrigin =config.env.prodApiEndpoint || config.env.apiEndpoint
   const response = NextResponse.json(imagekit.getAuthenticationParameters());
-  response.headers.set("Access-Control-Allow-Origin", allowedOrigin);
+  response.headers.set("Access-Control-Allow-Origin", "*");
   return response;
 }
